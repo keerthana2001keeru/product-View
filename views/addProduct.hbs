@@ -1,0 +1,198 @@
+
+
+<div class="main-panel container">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Product Management </h3>
+               <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <a href="/view-products" class="btn btn-success ml-auto">View Products</a>
+                 
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+             
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Product</h4>
+                    <form class="form-sample" method="post" action="/add-product" enctype="multipart/form-data" >
+                      
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Product Name</label>
+                            <div class="col-sm-9">
+                              <input 
+                      class="form-control"
+                      id="productName"
+                      type="text"
+                      name="name"
+                      placeholder="Product Name"
+                      data-sb-validations="required"
+                    /> 
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Brand</label>
+                            <div class="col-sm-9">
+                             
+                             
+                          
+                     <input
+                      class="form-control"
+                      id="brand"
+                      name="brand"
+                      type="text"
+                      placeholder="Brand"
+                      data-sb-validations="required"
+                    />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                              <input
+                      class="form-control"
+                      id="category"
+                      name="category"
+                      type="text"
+                      placeholder="Category"
+                      data-sb-validations="required"
+                    />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-9">
+                               <input
+                      class="form-control"
+                      id="price"
+                      name="price"
+                      type="text"
+                      placeholder="Price"
+                      data-sb-validations="required"
+                    />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                              <input
+                      class="form-control"
+                      id="description"
+                      name="description"
+                      type="text"
+                      placeholder="Description"
+                      data-sb-validations="required"
+                    />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">In Stock</label>
+                            <div class="col-sm-9">
+                             <input
+                      class="form-control"
+                      id="inStock"
+                      name="countInStock"
+                      type="text"
+                      placeholder="In Stock"
+                      data-sb-validations="required"
+                    />
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row">
+ <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Color</label>
+                            <div class="col-sm-9">
+                              <input
+                      class="form-control"
+                      id="color"
+                      name="color"
+                      type="text"
+                      placeholder="Color"
+                      data-sb-validations="required"
+                    />
+                            </div>
+                          </div>
+                        </div>
+                         <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Specification</label>
+                            <div class="col-sm-9">
+                              <input
+                      class="form-control"
+                      id="specification"
+                      name="specification"
+                      type="text"
+                      placeholder="Specification"
+                      data-sb-validations="required"
+                    />
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Images</label>
+                            <div class="col-sm-9">
+                              <input
+                      class="form-control"
+                      id="inStock"
+                      type="file"
+                      name="image"
+                      placeholder="Image"
+                      multiple
+                      data-sb-validations="required"
+                    />
+                            </div>
+                          </div>
+                        </div>
+                        {{!-- <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Size</label>
+                            <div class="col-sm-9">
+                       <select name="size" id="size" multiple required>
+    <option value="XXS">XXS</option>
+    <option value="XS">XS</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+    <option value="XXL">XXL</option>
+  </select>
+                            </div>
+                          </div>
+                        </div> --}}
+                      </div>
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+             
+              
+            </div>
+          </div>
+         
+        </div>

@@ -1,0 +1,74 @@
+
+ <div class="main-panel container">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Product Management </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <a href="/" class="btn btn-success ml-auto">Add Product</a>
+                 
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+             
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Products</h4>
+                    {{!-- <p class="card-description"> Add class <code>.table-hover</code>
+                    </p> --}}
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                             <th scope="col">No</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Brand</th>
+       <th scope="col">Color</th>
+      <th scope="col">Category</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Price</th>
+        <th scope="col">Specification</th>
+       <th>Edit</th>
+       <th> Delete </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+    {{#each products}}
+    <tr>
+      <th scope="row">1</th>
+      {{!-- {{#each this.image}} --}}
+      <td><img class="img-fluid" src="img/productImges/{{this.image.[0]}}" alt="" /></td>
+      {{!-- {{/each}} --}}
+      <td>{{this.name}}</td>
+      <td>{{this.brand}}</td>
+      <td>{{this.color}}</td>
+      <td>{{this.category}}</td>
+      <td>{{this.countInStock}}</td>
+      <td>{{this.price}}</td>
+      <td>{{this.specification}}</td>
+      <td><a href="/editProduct/{{this._id}}" class="fw-semibold mb-0 fs-4"><i
+                                class="far fa-pen-to-square"></i>
+                                </td>
+                                 <td class="border-bottom-0">
+                            <a href="/deleteProduct/{{this._id}}" class="fw-semibold mb-0 fs-4"><i
+                                class="far fa-trash-can" style="color: #ea191d"></i></a>
+                          </td>
+    </tr>
+    {{/each}}
+   
+  </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+             
+              
+            </div>
+          </div>
+         
+        </div>
