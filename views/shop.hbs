@@ -1,0 +1,131 @@
+
+
+
+
+
+  <section class="shop spad mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="shop__sidebar">
+                        <div class="sidebar__categories">
+                            <div class="section-title">
+                                <h4>Categories</h4>
+                            </div>
+                            <div class="categories__accordion">
+                                <div class="accordion" id="accordionExample">
+<a href="#" data-category="women">Women</a>
+<a href="#" data-category="men">Men</a>
+<a href="#" data-category="Kids">Kids</a>
+<a href="#" data-category="Accessories">Accessories</a>
+<a href="#" data-category="Cosmetic">Cosmetic</a>
+
+                                </div>
+                            </div>  
+                        </div>
+                       
+                    </div>
+                </div>
+               
+                <div class="col-lg-9 col-md-9">
+                    <div id="shopProducts">
+                    <div class="row">
+                        {{#each products}}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product__item">
+                                 
+
+                                <div class="product__item__pic set-bg" data-setbg="img/productImges/{{this.image.[0]}}" >
+                                   
+                                    <ul class="product__hover">
+                                      
+                                        
+            
+                <img src="img/productImges/{{this.image.[0]}}">
+               
+            <li> <a
+                      href="/product/{{this._id}}"
+                        class="aspect aspect--bg-grey aspect--square u-d-block"
+                        style=""
+                      ><span class="arrow_expand"></span></li>
+      
+                                        
+                                        <li><a href="/addWishlist/{{this._id}}"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="/addToCart/{{this._id}}"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+                                
+                                  </a>
+                                <div class="product__item__text">
+                                    <h6><a href="#">{{this.name}}</a></h6>
+                                   
+                                    <div class="product__price">{{this.price}}</div>
+                                    <div class="product__price">{{this.brand}}</div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                             {{/each}}
+                       
+                    </div>
+                    </div>
+                </div>
+           
+            </div>
+        </div>
+    </section>
+
+
+    
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+  const categoryLinks = document.querySelectorAll('.categories__accordion a');
+
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent default link behavior
+
+      const category = this.getAttribute('data-category'); // Get category from data-attribute
+
+      // Make an AJAX request using fetch
+      fetch(`/shop?category=${category}`, {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest', // Indicate it's an AJAX request
+        },
+      })
+      .then(response => response.json())
+      .then(products => {
+        // Update the shop products section with the new products
+        const productsContainer = document.getElementById('shopProducts');
+        let productHTML = '';
+
+        products.forEach(product => {
+          productHTML += `
+            <div class="col-lg-4 col-md-6">
+              <div class="product__item">
+                <div class="product__item__pic set-bg" data-setbg="img/productImges/${product.image[0]}">
+                  <ul class="product__hover">
+                    <li><a href="/product/${product._id}" class="aspect aspect--bg-grey aspect--square u-d-block"><span class="arrow_expand"></span></li>
+                    <li><a href="/addWishlist/${product._id}"><span class="icon_heart_alt"></span></a></li>
+                    <li><a href="/addToCart/${product._id}"><span class="icon_bag_alt"></span></a></li>
+                  </ul>
+                </div>
+                <div class="product__item__text">
+                  <h6><a href="#">${product.name}</a></h6>
+                  <div class="product__price">${product.price}</div>
+                  <div class="product__price">${product.brand}</div>
+                </div>
+              </div>
+            </div>`;
+        });
+
+        // Replace the current products with the new ones
+        productsContainer.innerHTML = `<div class="row">${productHTML}</div>`;
+      })
+      .catch(error => {
+        console.error('Error fetching filtered products:', error);
+      });
+    });
+  });
+});
+</script>

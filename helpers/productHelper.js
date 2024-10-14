@@ -42,4 +42,25 @@ editProduct: async function (proId, body) {
     throw new Error("invalid product Id");
   }
   },
+  productSearch : async function (keyword) {
+    try {
+      // Use MongoDB's regex to perform a case-insensitive search in the product name and description fields
+      const searchRegex = new RegExp(keyword, 'i');
+  
+      // Search for products that match the keyword in name, description, or category
+      const searchResults = await Products.find({
+        $or: [
+          { name: { $regex: searchRegex } },
+          { description: { $regex: searchRegex } },
+          { category: { $regex: searchRegex } },
+        ]
+      }).lean();
+  
+      return searchResults;
+    } catch (error) {
+      console.error("Error searching products:", error);
+      return [];
+    }
+  },
+
 }
